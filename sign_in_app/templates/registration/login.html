@@ -9,7 +9,7 @@
 {% else %}
 <h1>Django Project</h1>
 <h2>Log In</h2>
-<form method="post" action="/userlogin">
+<form method="post" action="/login/">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Log In</button>
