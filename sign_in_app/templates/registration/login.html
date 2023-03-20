@@ -1,0 +1,22 @@
+{% include 'messaging.html' %}
+{% load crispy_forms_tags %}
+
+
+{% load socialaccount %}
+{% if user.is_authenticated %}
+  <p>Welcome, You are logged in as {{ user.username }}</p>
+  <a class="nav-link" href="/logout">Logout</a>
+{% else %}
+<h1>Django Project</h1>
+<h2>Log In</h2>
+<form method="post" action="/userlogin">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log In</button>
+  <a href="{% provider_login_url 'google' %}">Login With Google</a>
+
+  <br/>
+  <br />
+  <a class="nav-link" href="/signup">Sign Up</a>
+</form>
+{% endif %}
